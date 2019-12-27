@@ -40,7 +40,7 @@ module.exports = {
                 },
             },
             {
-                test: /\.css$/,
+                test: /\.s?css$/,
                 use: [
                     'style-loader',
                     'css-loader',
@@ -49,4 +49,8 @@ module.exports = {
             },
         ],
     },
+    devtool: 'source-map',
+    resolve: {
+        extensions: ['.wasm', '.mjs', '.jsx', '.js', '.json'],
+    }
 };
