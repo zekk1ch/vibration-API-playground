@@ -1,27 +1,13 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV,
-    context: path.resolve('src'),
     entry: {
-        app: './app',
+        bundle: './src',
     },
     output: {
         path: path.resolve('docs'),
     },
-    plugins: [
-        new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [
-                '**/*',
-                '!.gitkeep',
-            ],
-        }),
-        new HtmlWebpackPlugin({
-            template: './index.html',
-        }),
-    ],
     module: {
         rules: [
             {
@@ -30,27 +16,23 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [
-                            '@babel/preset-react',
-                        ],
-                        plugins: [
-                            '@babel/plugin-proposal-class-properties',
-                        ],
+                        presets: ['@babel/preset-react'],
+                        plugins: ['@babel/plugin-proposal-class-properties'],
                     },
                 },
             },
             {
                 test: /\.s?css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader',
-                ],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ],
     },
-    devtool: 'source-map',
     resolve: {
         extensions: ['.wasm', '.mjs', '.jsx', '.js', '.json'],
-    }
+    },
+    devtool: 'source-map',
+    devServer: {
+        contentBase: path.resolve('docs'),
+        stats: 'errors-only',
+    },
 };

@@ -1,0 +1,11 @@
+import './styles/index.scss';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App/App';
+
+ReactDOM.render(<App/>, document.getElementById('app'));
+
+addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js');
+});
