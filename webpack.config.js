@@ -33,6 +33,7 @@ module.exports = {
     devtool: 'source-map',
     devServer: {
         contentBase: path.resolve('docs'),
+        historyApiFallback: true,
         stats: 'errors-only',
     },
 };

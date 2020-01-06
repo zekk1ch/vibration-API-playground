@@ -1,0 +1,8 @@
+.vibration-recorder {
+    display: flex;
+    flex-direction: column;
+
+    .vibration-input {
+        flex-grow: 1;
+    }
+}

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 function VibrationInput(props) {
-    let lastActionTime = React.useRef(0);
+    let lastActionTime = useRef(0);
 
     function handleTouchStart(e) {
         if (e.touches.length > 1) {
@@ -16,7 +16,7 @@ function VibrationInput(props) {
         lastActionTime.current = now;
 
         if (!isFirstAction) {
-             props.afterCalm && props.afterCalm(calmDuration);
+             props.afterCalm(calmDuration);
         }
     }
     function handleTouchEnd(e) {
@@ -29,7 +29,7 @@ function VibrationInput(props) {
 
         lastActionTime.current = now;
 
-        props.afterVibrate && props.afterVibrate(vibrateDuration);
+        props.afterVibrate(vibrateDuration);
     }
 
     return (
@@ -37,15 +37,13 @@ function VibrationInput(props) {
             className="vibration-input"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
-        >
-            {props.children}
-        </div>
+        />
     );
 }
 
 export default VibrationInput;
 
 VibrationInput.propTypes = {
-    afterVibrate: PropTypes.func,
-    afterCalm: PropTypes.func,
+    afterVibrate: PropTypes.func.isRequired,
+    afterCalm: PropTypes.func.isRequired,
 };
