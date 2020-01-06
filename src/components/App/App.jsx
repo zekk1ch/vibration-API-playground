@@ -1,5 +1,5 @@
 import React from 'react';
-import VibrationRecorder from '../VibrationRecorder/VibrationRecorder';
+import VibrationList from '../VibrationList/VibrationList';
 
 class App extends React.Component {
     PREFIX = 'vibration-record__';
@@ -41,8 +41,8 @@ class App extends React.Component {
 
     render() {
         return (
-            <VibrationRecorder
-                onSave={this.saveRecord}
+            <VibrationList
+                records={this.state.records}
             />
         );
     }
