@@ -6,7 +6,7 @@ function VibrationPatternInput(props) {
     const vibrationPattern = useRef([]);
     const wasResultSubmitted = useRef(false);
 
-    useEffect(function() {
+    useEffect(() => {
         if (props.isDone && !wasResultSubmitted.current) {
             wasResultSubmitted.current = true;
             props.onDone(vibrationPattern.current);

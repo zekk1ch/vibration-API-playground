@@ -1,7 +1,8 @@
 @import 'reset';
 @import 'common';
 
-@import '../components/VibrationInput/VibrationInput.scss';
-@import '../components/VibrationRecorder/VibrationRecorder.scss';
-@import '../components/VibrationList/VibrationList.scss';
-@import '../components/VibrationListItem/VibrationListItem.scss';
+@import '../components/VibrationList/VibrationList';
+@import '../components/VibrationListItem/VibrationListItem';
+@import '../components/VibrationInput/VibrationInput';
+@import '../components/VibrationRecorder/VibrationRecorder';
+@import '../components/VibrationPlayer/VibrationPlayer';
