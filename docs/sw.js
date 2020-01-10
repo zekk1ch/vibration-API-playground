@@ -1,10 +1,10 @@
 const CACHE_NAME = 'vibration-API-playground';
 const STATIC_ASSET_URLS = [
-    '/',
-    '/bundle.js',
-    '/manifest.json',
-    '/images/logo/favicon.ico',
-    '/images/logo/android-chrome-512x512.png',
+    'index.html',
+    'bundle.js',
+    'manifest.json',
+    'images/logo/favicon.ico',
+    'images/logo/android-chrome-512x512.png',
 ];
 
 self.addEventListener('install', e => {

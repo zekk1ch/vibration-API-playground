@@ -2,10 +2,17 @@ import './styles/index.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App/App';
+import { BrowserRouter, Route } from 'react-router-dom';
+import App from './components/App';
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render((
+    <BrowserRouter>
+        <Route component={App}/>
+    </BrowserRouter>
+), document.getElementById('app'));
 
-addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js');
+addEventListener('load', () => {
+    if (/^\/(vibration-API-playground\/)?$/.test(location.pathname)) {
+        navigator.serviceWorker.register(`${location.pathname}sw.js`);
+    }
 });

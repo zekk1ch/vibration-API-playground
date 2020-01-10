@@ -6,7 +6,7 @@ function VibrationPlayer(props) {
 
     useEffect(() => {
         const startedAt = Date.now();
-        const duration = props.vibrationPattern.reduce((acc, curr) => acc + curr);
+        const duration = props.vibrationPattern.reduce((acc, curr) => acc + curr, 0);
 
         let animationId;
         function updateProgress() {
@@ -31,7 +31,7 @@ function VibrationPlayer(props) {
     }, [props.vibrationPattern]);
 
     return (
-        <div className="vibration-player page">
+        <div className="vibration-player">
             <progress className="vibration-player--progress" value={progress}/>
         </div>
     );

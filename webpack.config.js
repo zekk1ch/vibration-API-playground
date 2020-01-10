@@ -17,13 +17,12 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: ['@babel/preset-react'],
-                        plugins: ['@babel/plugin-proposal-class-properties'],
                     },
                 },
             },
             {
-                test: /\.s?css$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader', 'import-glob-loader'],
             },
         ],
     },

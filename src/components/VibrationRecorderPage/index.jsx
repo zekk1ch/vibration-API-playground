@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import VibrationPatternInput from '../VibrationPatternInput/VibrationPatternInput';
+import VibrationPatternInput from '../VibrationPatternInput';
+import NavButton from '../NavButton';
+import GoBackButton from '../GoBackButton';
 
 function VibrationRecorder(props) {
     const [isDone, setIsDone] = useState(false);
 
+    function stopRecording() {
+        setIsDone(true);
+    }
+
     return (
-        <div className="vibration-recorder page">
+        <div className="page vibration-recorder--wrapper">
             <VibrationPatternInput
                 isDone={isDone}
                 onDone={props.onSave}
             />
-            <button onClick={() => setIsDone(true)}>Save</button>
+            <NavButton
+                text="Save"
+                onClick={stopRecording}
+            />
+            <GoBackButton/>
         </div>
     );
 }

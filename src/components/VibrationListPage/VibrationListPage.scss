@@ -1,0 +1,8 @@
+.vibration-list--wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .vibration-list {
+        flex-grow: 1;
+    }
+}
