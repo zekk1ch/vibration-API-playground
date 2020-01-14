@@ -15,8 +15,12 @@ function VibrationInput(props) {
 
         lastActionTime.current = now;
 
+        if (props.vibrateOnInput) {
+            navigator.vibrate(Number.MAX_SAFE_INTEGER);
+        }
+
         if (!isFirstAction) {
-             props.afterCalm(calmDuration);
+             props.afterCalm && props.afterCalm(calmDuration);
         }
     }
     function handleTouchEnd(e) {
@@ -29,7 +33,11 @@ function VibrationInput(props) {
 
         lastActionTime.current = now;
 
-        props.afterVibrate(vibrateDuration);
+        if (props.vibrateOnInput) {
+            navigator.vibrate(0);
+        }
+
+        props.afterVibrate && props.afterVibrate(vibrateDuration);
     }
 
     return (
@@ -44,6 +52,7 @@ function VibrationInput(props) {
 export default VibrationInput;
 
 VibrationInput.propTypes = {
-    afterVibrate: PropTypes.func.isRequired,
-    afterCalm: PropTypes.func.isRequired,
+    vibrateOnInput: PropTypes.bool,
+    afterVibrate: PropTypes.func,
+    afterCalm: PropTypes.func,
 };

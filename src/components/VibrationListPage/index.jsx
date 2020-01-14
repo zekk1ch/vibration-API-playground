@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import VibrationList from '../VibrationList';
-import GoToButton from '../GoToButton';
+import NavButton from '../NavButton';
 
 function VibrationListPage(props) {
     const history = useHistory();
@@ -17,10 +17,7 @@ function VibrationListPage(props) {
                 records={props.records}
                 onSelect={goToVibrationPage}
             />
-            <GoToButton
-                text="New"
-                path="/new"
-            />
+            <NavButton to="/new">New</NavButton>
         </div>
     );
 }

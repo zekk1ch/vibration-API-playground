@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GoBackButton from '../GoBackButton';
+import NavButton from '../NavButton';
 import VibrationPlayer from '../VibrationPlayer';
 
 function VibrationPlayerPage(props) {
@@ -9,7 +9,7 @@ function VibrationPlayerPage(props) {
             <VibrationPlayer
                 vibrationPattern={props.vibrationPattern}
             />
-            <GoBackButton/>
+            <NavButton to="/">Home</NavButton>
         </div>
     );
 }

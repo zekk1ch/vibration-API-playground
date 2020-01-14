@@ -1,13 +1,20 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function NavButton(props) {
+    const history = useHistory();
+
+    function navigate() {
+        history.push(props.to);
+    }
+
     return (
         <button
             className="nav-button"
-            onClick={props.onClick}
+            onClick={navigate}
         >
-            {props.text}
+            {props.children}
         </button>
     );
 }
@@ -15,6 +22,5 @@ function NavButton(props) {
 export default NavButton;
 
 NavButton.propTypes = {
-    text: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
+    to: PropTypes.string.isRequired,
 };

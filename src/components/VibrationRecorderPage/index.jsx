@@ -1,34 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import VibrationPatternInput from '../VibrationPatternInput';
+import VibrationRecorder from '../VibrationRecorder';
 import NavButton from '../NavButton';
-import GoBackButton from '../GoBackButton';
 
-function VibrationRecorder(props) {
-    const [isDone, setIsDone] = useState(false);
-
-    function stopRecording() {
-        setIsDone(true);
-    }
-
+function VibrationRecorderPage(props) {
     return (
         <div className="page vibration-recorder--wrapper">
-            <VibrationPatternInput
-                isDone={isDone}
-                onDone={props.onSave}
+            <VibrationRecorder
+                onSave={props.onSave}
             />
-            <NavButton
-                text="Save"
-                onClick={stopRecording}
-            />
-            <GoBackButton/>
+            <NavButton to="/">Home</NavButton>
         </div>
     );
 }
 
-export default VibrationRecorder;
+export default VibrationRecorderPage;
 
-VibrationRecorder.propTypes = {
+VibrationRecorderPage.propTypes = {
     onSave: PropTypes.func.isRequired,
 };
 
